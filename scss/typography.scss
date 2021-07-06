@@ -6,6 +6,9 @@ $font-primary:'Poppins', sans-serif;
 $font-secondary:'Roboto', sans-serif;
 
 // CUSTOM FONTS
+*{
+    font-family: $font-primary;
+}
 .h1{
     font-family: $font-primary;
     font-style: normal;

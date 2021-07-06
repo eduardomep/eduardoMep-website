@@ -1,6 +1,7 @@
 // sass --watch scss/main.scss assets/css/style.css
 
 //Project files
+@import "variables";
 @import "typography";
 
 //Bootstrap core
@@ -24,5 +25,155 @@
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/helpers";
-// @import "node_modules/bootstrap/scss/bootstrap.scss";
 
+body{
+    background-image: url('../img/background.png');
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+// navbar
+#navbar{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    transition: 0.5s;
+}
+.navbar-active{
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+}
+
+// Utilies
+.uil{
+    font-size: 24px !important;
+}
+.border-rounded{
+    border-radius: 10px;
+}
+// Floating animation
+
+@keyframes floating {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-25px); }
+    100% { transform: translateY(0); }
+}
+#main-ilustration{
+    animation-name: floating;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#hero-section{
+    min-height: 100vh;
+}
+// footer
+.footer-card{
+    background-color: $purple;
+    color: white;
+}
+#footer-middle{
+    background-color: #E3E1EA;
+    color: $purple;
+}
+#footer-bottom{
+    background-color: $purple;
+}
+// Projects
+.project-card{
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+    &:hover{
+        .project-circle{
+            transform: scale(1.2);
+        }
+        img{
+            transform: translateY(-25px);
+        }
+
+    }
+    .project-circle{
+        transition: 0.5s;
+        position: absolute;
+        border-radius: 10000px;
+        width: 100%;
+        height: 500px;
+        top: -250px;
+        left: 0;
+        z-index: 1;
+    }
+    .project-content{
+        position: relative;
+        z-index: 2;
+    }
+    img{
+        transition: 0.5s;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 200px;
+        z-index: 2;
+        filter: drop-shadow(0px 4.51183px 13.5355px rgba(139, 139, 139, 0.25));
+        border-radius: 4px;
+    }
+    .category-chip {
+        border-radius: 100px;
+        padding: 6px 12px;
+        font-size: 12px;
+        background-color: #343A40;
+        color: white;
+    }
+}
+.project-col{
+    &:hover{
+        .open-project-btn{
+            display: flex !important;
+        }
+
+    }
+}
+.open-project-btn{
+    text-decoration: none;
+    transition: 0.5s;
+    position: absolute;
+    display: none;
+    background-color: $primary;
+    color: white !important;
+    border-radius: 100px;
+    top: 16px;
+    right: 32px;
+    align-items: center;
+    &:hover{
+        background-color: darken($primary, 10%);
+    }
+    z-index: 10;
+}
+.category-chip {
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: solid 1px #343A40;
+    background-color: white;
+    color: #343A40;
+    &:hover{
+        cursor: pointer;
+        background-color: #343A40 !important;
+        color: white !important;
+    }
+}
+.active-chip{
+    background-color: #343A40 !important;
+    color: white !important;
+}
+.project-banner{
+    height: 100%;
+    max-height: 50vh;
+    padding-top: 100px;
+    overflow: hidden;
+}
